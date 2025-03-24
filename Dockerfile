@@ -3,6 +3,11 @@ FROM node:23 as fe
 WORKDIR /src
 RUN npm i -g pnpm
 # COPY .git .git/
+RUN git init && \
+    git config --global user.email "temporary@example.com" && \
+    git config --global user.name "Temporary User" && \
+    git add . && \
+    git commit -m "Temporary commit for build" || true
 COPY frontend ./frontend
 COPY scripts.sh .
 RUN ./scripts.sh build-frontend
