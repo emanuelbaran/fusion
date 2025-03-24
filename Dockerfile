@@ -16,7 +16,7 @@ RUN ./scripts.sh build-backend
 
 # deploy
 FROM alpine:3.21.0
-LABEL org.opencontainers.image.source="https://github.com/0x2E/fusion"
+#LABEL org.opencontainers.image.source="https://github.com/0x2E/fusion"
 WORKDIR /fusion
 COPY --from=be /src/build/fusion ./
 EXPOSE 8080
